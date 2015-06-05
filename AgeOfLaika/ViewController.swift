@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var humanYearsTextField: UITextField!
+    @IBOutlet weak var dogYearsTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func humanToDogConvert(sender: UIButton) {
+        dogYearsTextField.text = "\((humanYearsTextField.text.toInt()!)*7)"
+        humanYearsTextField.resignFirstResponder()
+    }
+
+    @IBAction func dogToHumanConvert(sender: UIButton) {
+        
+            humanYearsTextField.text = "\((dogYearsTextField.text as NSString).doubleValue/7.0)"
+        dogYearsTextField.resignFirstResponder()
+    }
+    
 
 }
 
