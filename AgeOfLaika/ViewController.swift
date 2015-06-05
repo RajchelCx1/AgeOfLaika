@@ -24,8 +24,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func humanToDogConvert(sender: UIButton) {
-        dogYearsTextField.text = "\((humanYearsTextField.text.toInt()!)*7)"
-        humanYearsTextField.resignFirstResponder()
+        //original
+//        dogYearsTextField.text = "\((humanYearsTextField.text.toInt()!)*7)"
+//        humanYearsTextField.resignFirstResponder()
+        var humanAge = Double((humanYearsTextField.text as NSString).doubleValue)
+        if humanAge<=2 {
+            dogYearsTextField.text = "\(humanAge*10.5)"
+        }
+        else{
+            dogYearsTextField.text = "\((2*10.5)+((humanAge-2)*4))"
+        }
     }
 
     @IBAction func dogToHumanConvert(sender: UIButton) {
